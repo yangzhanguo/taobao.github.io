@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='https://fonts.googleapis.com/css?family=Architects+Daughter' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print">
+
+    <!--[if lt IE 9]>
+    <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <title>Yangzhanguo.GitHub.io by yangzhanguo</title>
+  </head>
+
+  <body>
+    <header>
+      <div class="inner">
+        <h1>Yangzhanguo.GitHub.io</h1>
+        <h2>css315,javascrip</h2>
+        <a href="https://github.com/yangzhanguo" class="button"><small>Follow me on</small> GitHub</a>
+      </div>
+    </header>
+
+    <div id="content-wrapper">
+      <div class="inner clearfix">
+        <section id="main-content">
+          <p>&lt;!DOCTYPE html&gt;
+
+</p>
+        
+        
+        
+        
+            html,body { height: 100%; margin: 0; }
+            #box { padding: 10px;}
+            #changediv{width: 100px; height: 100px; border: 4px solid #393129; background: #fff;margin-top: 20px;}
+            #btn1 { width: 100px; height: 40px; border: none; padding:0; background: red; color: #fff; cursor: pointer; outline: none;}
+            #alertbox{ position: absolute; left: 450px; width: 300px; height: 200px; border:20px solid #9c949c; background: #fff; font-size: 14px; text-align: center;font-family:&amp;quot;微软雅黑&amp;quot;; display: none; z-index: 2; top: 200px;} 
+            .color a {width: 34px; height: 30px; line-height: 30px; display:inline-block; margin-right:5px; text-decoration: none; font-size: 12px; color: #fff;}
+            .px a { width:34px; height: 30px; background:#efefef; border: 1px solid #c0c0c0; margin-right:5px; display: inline-block; background: #fff; line-height: 30px; color:#808080; text-decoration: none; font-size: 12px;} 
+            #c_red { background:red; border: 1px solid red;}
+            #c_yellow { background: #efbd00;border: 1pxsolid #efbd00; }
+            #c_blue { background: blue;border: 1px solid blue;} 
+            #alertbox input { margin-right: 5px; border: none; background: #002952; color: #fff; width: 60px; height: 30px; cursor: pointer; outline: none;} 
+            #bg {position:absolute; left: 0; top: 0; height: 100%; width: 100%; background: #000;opacity: 0.4; display: none;} 
+            #alertbox a:hover { color: #000; border:1px solid #000;}
+        
+
+
+<pre><code>&lt;body&gt;
+    &lt;div id="box"&gt;
+                   请为下面的DIV设置样式：
+        &lt;input id="btn1" type="button" value="点击设置" /&gt;
+        &lt;div id="changediv"&gt;
+        &lt;/div&gt;
+        &lt;div id="alertbox"&gt;
+            &lt;p class="color"&gt;
+                请选择背景颜色：
+                &lt;a id="c_red" href="javascript:"&gt;
+                    红
+                &lt;/a&gt;
+                &lt;a id="c_yellow" href="javascript:"&gt;
+                    黄
+                &lt;/a&gt;
+                &lt;a id="c_blue" href="javascript:"&gt;
+                    蓝
+                &lt;/a&gt;
+            &lt;/p&gt;
+            &lt;p class="px"&gt;
+                请选择宽（px）：
+                &lt;a id="w_200" href="javascript:"&gt;
+                    200
+                &lt;/a&gt;
+                &lt;a id="w_300" href="javascript:"&gt;
+                    300
+                &lt;/a&gt;
+                &lt;a id="w_400" href="javascript:"&gt;
+                    400
+                &lt;/a&gt;
+            &lt;/p&gt;
+            &lt;p class="px"&gt;
+                请选择高（px）：
+                &lt;a id="h_200" href="javascript:"&gt;
+                    200
+                &lt;/a&gt;
+                &lt;a id="h_300" href="javascript:"&gt;
+                    300
+                &lt;/a&gt;
+                &lt;a id="h_400" href="javascript:"&gt;
+                    400
+                &lt;/a&gt;
+            &lt;/p&gt;
+            &lt;input id="huifu" type="button" value="恢复" /&gt;
+            &lt;input id="queding" type="button" value="确定" /&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id="bg"&gt;
+    &lt;/div&gt;
+    &lt;script&gt;
+        window.onload = function() {
+            var aAbtn = $$("alertbox", "a");
+            var ochangeDiv = $("changediv");
+            for (var i = 0; i &lt; aAbtn.length; i++) {
+                aAbtn[i].onclick = function() {
+                    var id = this.id;
+                    var firstL = id.substr(0, 1);
+                    var value = id.substring(id.indexOf('_') + 1, id.length);
+                    switch (firstL) {
+                    case "c":
+                        ochangeDiv.style.background = value;
+                    case "w":
+                        ochangeDiv.style.width = value + "px";
+                    case "h":
+                        ochangeDiv.style.height = value + "px";
+                    };
+                };
+            };
+
+            $("btn1").onclick = function() {
+                $("alertbox").style.display = $("bg").style.display = "block";
+            };
+
+            /*
+               给每个啊A标签都加一个onclcik事件显得很臃肿
+
+            var ochangeDiv=$("changediv");
+            $("c_red").onclick=function(){
+                ochangeDiv.style.background="red";
+            };
+            $("c_yellow").onclick=function(){
+                ochangeDiv.style.background="yellow";
+            };
+            $("c_blue").onclick=function(){
+                ochangeDiv.style.background="blue";
+            };
+
+            $("w_200").onclick=function(){
+                ochangeDiv.style.width="200px";
+            };
+            $("w_300").onclick=function(){
+                ochangeDiv.style.width="300px";
+            };
+            $("w_400").onclick=function(){
+                ochangeDiv.style.width="400px";
+            };
+
+            $("h_200").onclick=function(){
+                ochangeDiv.style.height="200px";
+            };
+            $("h_300").onclick=function(){
+                ochangeDiv.style.height="300px";
+            };
+            $("h_400").onclick=function(){
+                ochangeDiv.style.height="400px";
+            };
+            */
+            $("huifu").onclick = function() {
+                ochangeDiv.style.height = "100px";
+                ochangeDiv.style.width = "100px";
+                ochangeDiv.style.background = "#fff";
+            };
+
+            $("queding").onclick = function() {
+                $("alertbox").style.display = $("bg").style.display = "none";
+            };
+
+        };
+
+        function $(id) {
+            return document.getElementById(id);
+        };
+
+        function $$(id, tagName) {
+            return document.getElementById(id).getElementsByTagName(tagName);
+        };
+    &lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p></p>
+        </section>
+
+        <aside id="sidebar">
+
+
+          <p>This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the Architect theme by <a href="https://twitter.com/jasonlong">Jason Long</a>.</p>
+        </aside>
+      </div>
+    </div>
+
+  
+  </body>
+</html>
