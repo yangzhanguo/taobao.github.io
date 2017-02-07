@@ -1,0 +1,8 @@
+title: yangzhanguo.GitHub.io
+description: css315,javascrip
+google_analytics: 
+show_downloads: true
+theme: jekyll-theme-merlot
+
+gems:
+  - jekyll-mentions
